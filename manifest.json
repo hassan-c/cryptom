@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Cryptom",
+  "description": "Google Chrome add-on for implementing PGP in Facebook Messenger",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "cryptom"
+  },
+  "permissions": [
+    "tabs",
+    "https://*.facebook.com/*"
+  ],
+
+  "content_scripts": [
+    {
+	"matches": ["https://facebook.com/*", "https://*.facebook.com/*"],
+	"js": ["jquery-3.1.1.min.js", "openpgp.js", "logic.js"],
+        "run_at":"document_end"
+	}
+  ] 
+}
